@@ -25,24 +25,15 @@ int g_i = 0;  // Data 영역
 // 프로그램 종료 시 해제
 
 #include "fun.h"
+// 헤더파일에는 전역변수 사용안하는게 좋다.
 
-
-void Test()
-{
-	int i = 0;
-	++i;
-}
 
 
 int main()
 {
-	Test();
-	Test();
-	Test();
 
-	int data = Add(10, 20);
 
-	g_i = 0;
+
 
 	return 0;
 
