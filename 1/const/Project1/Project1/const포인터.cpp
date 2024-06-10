@@ -8,6 +8,9 @@ void Output(const int* pi)
 	*pint = 1000;
 }
 
+// 포인터의 특징 : 원본 데이터가 어떤 자료인지는 무관하다.
+
+
 int main()
 {
 	// 1. const
@@ -60,6 +63,27 @@ int main()
 
 	a = 100;
 	Output(&a);
+
+	// void
+	void* pVoid = nullptr;
+	float* pFloat = nullptr;
+	// float이나 int등등 선언하면 float으로 읽게다는 소리
+	// void로 선언하면 어떤 자료형이든 다 받을 수 있다.
+
+	{
+		int a = 0;
+		float f = 0.f;
+		double d = 0;
+		long long ll = 0;
+
+		pVoid = &a;
+		pVoid = &f;
+		pVoid = &d;
+		pVoid = &ll;
+
+	}
+
+
 
 
 
