@@ -73,29 +73,33 @@ int main() {
 	}
 
 	
-		wchar_t szName[10] = L"Raimond";
+	wchar_t szName[10] = L"Raimond";
 
-		int ilenw = wcslen(szName);
-		int ilen = GetLength(szName);
-		
-		// 문자열 이어 붙이기
-		Test(10);
-		Test(4.15f);
+	int ilenw = wcslen(szName);
+	int ilen = GetLength(szName);
+	
+	// 문자열 이어 붙이기
+	Test(10);
+	Test(4.15f);
 
-		wchar_t szString[100] = L"abc";
+	wchar_t szString[100] = L"abc";
 
-		//wcscat_s(szString, 100, L"def");
-		StrCat(szString, 100, L"asdfqwdef");
+	//wcscat_s(szString, 100, L"def");
+	StrCat(szString, 100, L"asdfqwdef");
 
-		// wcscmp()
-		// 저울 같은 친구
-		// 왼쪽 오른쪽에 있을 떄 사전 순으로 먼저 나오는 쪽
-		// 즉 오른쪽이 사전 순 먼저 나오면 1
-		// 왼쪽이 사전 순으로 먼저 나오면 -1
-		// 같으면 0
+	// wcscmp()
+	// 저울 같은 친구
+	// 왼쪽 오른쪽에 있을 떄 사전 순으로 먼저 나오는 쪽
+	// 즉 오른쪽이 사전 순 먼저 나오면 1
+	// 왼쪽이 사전 순으로 먼저 나오면 -1
+	// 같으면 0
 
-		int _iRet = wcscmp(L"abc", L"abc");
-		int a = wcequal(L"abc", L"ab");
+	int _iRet = wcscmp(L"abc", L"abc");
+	int a = wcequal(L"abc", L"ab");
+
+
+	// 구조체와 포인터
+
 
 
 	
