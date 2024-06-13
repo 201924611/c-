@@ -2,9 +2,13 @@
 #include <iostream>
 #include<math.h>
 
-void Divide(arr* a, int start, int end, int* temp);
-void MS(arr* a, int start, int end, int* temp);
-void Insert(arr* a, int key);
+
+void _temp(arr *a, int i, int j)
+{
+	int temp = a->p[i];
+	a->p[i] = a->p[j];
+	a->p[j] = temp;
+}
 
 void makearr(arr* a, int size)
 {
@@ -44,6 +48,41 @@ void BubbleSort(arr* a)
 	}
 }
 
+void MS(arr* a, int start, int end, int* temp)
+{
+
+	int mid = (start + end) / 2;
+
+	int i = start, j = mid + 1, k = start;
+
+
+	while (i <= mid && j <= end) {
+		if (a->p[i] <= a->p[j])
+			temp[k++] = a->p[i++];
+		else
+			temp[k++] = a->p[j++];
+	}
+
+	while (i <= mid)
+		temp[k++] = a->p[i++];
+	while (j <= end)
+		temp[k++] = a->p[j++];
+
+	for (int i = start; i <= end; i++)
+		a->p[i] = temp[i];
+
+
+}
+
+void Divide(arr* a, int start, int end, int* temp) {
+	if (start < end) {
+
+		int mid = (start + end) / 2;
+		Divide(a, start, mid, temp);
+		Divide(a, mid + 1, end, temp);
+		MS(a, start, end, temp);
+	}
+}
 
 void MergeSort(arr* a)
 {
@@ -53,40 +92,18 @@ void MergeSort(arr* a)
 }
 
 
-void Divide(arr* a, int start, int end, int* temp) {
-	if (start < end) {		
-		
-		int mid = (start + end) / 2;
-		Divide(a, start, mid, temp);		
-		Divide(a, mid + 1, end, temp);
-		MS(a, start, end, temp);
-	}
-}
-
-void MS(arr* a, int start, int end, int* temp)
+void Insert(arr* a, int key)
 {
-
-	int mid = (start + end) / 2;
-
-	int i = start, j = mid + 1, k = start;		
-	
-
-	while (i <= mid && j <= end) {
-		if (a->p[i] <= a->p[j])
-			temp[k++] = a->p[i++];		
+	int temp;
+	for (int j = key; j > 0; j--)
+	{
+		if (a->p[j] < a->p[j - 1])
+		{
+			_temp(a, j, j - 1);
+		}
 		else
-			temp[k++] = a->p[j++];
+			break;
 	}
-
-	while (i <= mid)			
-		temp[k++] = a->p[i++];
-	while (j <= end)
-		temp[k++] = a->p[j++];
-
-	for (int i = start; i <= end; i++)
-		a->p[i] = temp[i];		
-
-
 }
 
 void InsertSort(arr* a)
@@ -96,20 +113,109 @@ void InsertSort(arr* a)
 	}
 }
 
-void Insert(arr* a, int key)
+void _Select(arr* a, int i)
 {
-	int temp;
-	for (int j = key; j > 0; j--)
+	int temp = i;
+	for (int j = i+1; j < a->count; j++)
 	{
-		if (a->p[j] < a->p[j - 1])
+		if (a->p[temp] > a->p[j])
 		{
-			temp = a->p[j];
-			a->p[j] = a->p[j - 1];
-			a->p[j - 1] = temp;
+			temp = j;
 		}
-		else
-			break;
 	}
+
+	_temp(a, temp, i);
+
+}
+
+void SelectSort(arr* a)
+{
+	int i = 0;
+	while (i< a->count-1)
+	{
+		_Select(a, i);
+		++i;
+	}
+}
+
+void Pvot(arr* a, int pivot, int end)
+{
+	if (0 >= end - pivot) {
+		return;
+	}
+
+	int low = pivot, high = end, temp = 0;
+	bool state = true;
+	while (state) {
+		if (high > low && a->p[high] > a->p[pivot])
+		{
+			--high;
+		}
+		else if (low < high && a->p[low] <= a->p[pivot])
+		{
+			++low;
+		}
+		else if (low == high)
+		{
+			state = false;
+		}
+		else {
+			_temp(a, high, low);
+		}
+	}
+	_temp(a, pivot, low);
+
+	if (1 < end-pivot )
+	{
+		Pvot(a, pivot, low-1);
+		Pvot(a, low + 1, end);
+	}
+}
+
+
+void QuickSort(arr* a)
+{
+	Pvot(a, 0, a->count-1);
+}
+
+void Heap(arr* a, int num)
+{
+	// 1. Èü ±¸¼º
+	int root;
+	int c;
+	bool state = true;
+
+	while (state) {
+		state = false;
+		for (int i = 1; i < num; ++i)
+		{
+			root = (i - 1) / 2;
+			if (a->p[root] < a->p[i])
+			{
+				_temp(a, root, i);
+				state = true;
+			}
+		}
+	}
+}
+
+void HeapSort(arr* a)
+{
+	int num = a->count-1;
+	while (true) 
+	{
+		Heap(a, num+1);
+		for (int i = 0; i < a->count; ++i)
+		{
+			printf("%d ", a->p[i]);
+		}
+		printf("\n");
+		_temp(a, 0, num--);
+		if (0 == num) {
+			break;
+		}
+	}
+		
 }
 
 void Reallocate(arr* a)

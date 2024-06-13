@@ -29,6 +29,12 @@ void InsertSort(arr* a);
 // 선택정렬
 void SelectSort(arr* a);
 
+// 퀵정렬
+void QuickSort(arr* a);
+
+// 힙정렬
+void HeapSort(arr* a);
+
 // 3.5 데이터 공간 부족하면 재할당
 void Reallocate(arr* a);
 

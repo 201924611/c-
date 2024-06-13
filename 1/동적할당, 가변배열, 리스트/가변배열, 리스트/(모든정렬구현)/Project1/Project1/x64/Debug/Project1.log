@@ -1,2 +1,4 @@
 ﻿  arr.cpp
+C:\study\1\동적할당, 가변배열, 리스트\가변배열, 리스트\(모든정렬구현)\Project1\Project1\arr.cpp(97,6): warning C4101: 'temp' :참조되지 않은 지역 변수입니다.
+C:\study\1\동적할당, 가변배열, 리스트\가변배열, 리스트\(모든정렬구현)\Project1\Project1\arr.cpp(185,6): warning C4101: 'c' :참조되지 않은 지역 변수입니다.
   Project1.vcxproj -> C:\study\1\동적할당, 가변배열, 리스트\가변배열, 리스트\(모든정렬구현)\Project1\x64\Debug\Project1.exe

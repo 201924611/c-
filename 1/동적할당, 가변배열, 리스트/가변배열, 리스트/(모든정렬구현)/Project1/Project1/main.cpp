@@ -29,7 +29,7 @@ int main()
 	
 	// 3. 데이터 정령 - 버블 정렬
 	printf("정렬한 값\n");
-	Sort(&s1,&InsertSort);
+	Sort(&s1,&HeapSort);
 	prArr(&s1);
 
 	
