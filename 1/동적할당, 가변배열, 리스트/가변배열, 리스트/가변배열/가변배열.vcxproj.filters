@@ -27,12 +27,21 @@
     <ClCompile Include="main0612.cpp">
       <Filter>헤더 파일</Filter>
     </ClCompile>
+    <ClCompile Include="CList.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="main0615.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arr.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="LinkedList.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="CList.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
