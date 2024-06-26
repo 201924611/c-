@@ -88,7 +88,7 @@ public:
 				assert(nullptr);
 			}
 			if (0 == m_iIdx) {
-				assert(nullptr)
+				assert(nullptr);
 			}
 			else
 				m_iIdx--;
@@ -103,7 +103,7 @@ public:
 				assert(nullptr);
 			}
 			if (0 == m_iIdx) {
-				assert(nullptr)
+				assert(nullptr);
 			}
 			iterator copy_iter = *this;
 			--(*this);
@@ -144,7 +144,7 @@ public:
 			, m_iIdx(_iIDX)
 			, m_bValid(false)
 		{
-			if (nullptr != _pArr && 0 <= iIdx)
+			if (nullptr != m_pArr && 0 <= m_iIdx)
 			{
 				m_bValid = true;
 			}
@@ -245,7 +245,7 @@ typename CArr<T>::iterator CArr<T>::erase(iterator& _iter)
 {
 	// iterator 가 다른 Arr 쪽 요소를 가리키는 경우
 	// iterator 가 end iterator인 경우
-	if (_iter.m_pArr != this || end() == _iter || m_iCount() <= _iter.m_iIdx)
+	if (_iter.m_pArr != this || end() == _iter || m_iCount<= _iter.m_iIdx)
 	{
 		assert(nullptr);
 	}

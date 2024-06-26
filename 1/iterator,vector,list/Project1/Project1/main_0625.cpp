@@ -1,5 +1,6 @@
 #include<iostream>
 #include"CArr.h"
+#include"CList.h"
 
 #include <vector>
 #include <list>
@@ -97,6 +98,34 @@ int main()
 			++veciter;
 		}
 	}
+	list<int> nlist;
+
+
+	// =============
+	// list iterator
+	// =============
+	CList<int> mylist;
+
+	mylist.push_back(100);
+	mylist.push_back(300);
+	mylist.push_back(400);
+
+	CList<int>::iterator listiter = mylist.begin();
+	++listiter;
+
+	listiter = mylist.insert(listiter, 200);
+
+	cout << "==================" << endl;
+	cout << "list iterator test" << endl;
+	cout << "==================" << endl;
+	for (listiter = mylist.begin(); listiter != mylist.end(); listiter++)
+	{
+		cout << *listiter << endl;
+	}
+
+
+
+
 
 	return 0;
 
